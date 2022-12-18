@@ -1,8 +1,10 @@
-# ecolog
+# ecolog 
+
+[![Go package](https://github.com/raahii/ecolog/actions/workflows/test.yml/badge.svg)](https://github.com/raahii/ecolog/actions/workflows/test.yml)
+
+
 
 Ecolog provides a middleware for [Go Echo framework](https://echo.labstack.com/) to realize contextual logging.
-
-
 
 ```shell
 go get -u github.com/raahii/ecolog
@@ -16,7 +18,17 @@ Contextual logging here means logging your application logs with the request con
 By using ecolog and echo's standard gommon logging, you can output logs with the handling request infos, such as http method, uri, request ID.
 
 ```json
-{"time":"2022-12-18T22:08:33+09:00","level": "INFO",id":"QLcFbv1G3gQbe78bJOG2XVkbbPWwt7uP","remote_ip":"127.0.0.1","host":"localhost:1323","method":"GET","uri":"/","user_agent":"curl/7.79.1","message":"This is a log in Hello method."}
+{
+  "time": "2022-12-18T22:22:21+09:00",
+  "level": "INFO",
+  "id": "5aWJKbZ1hEDYyfwhidOnUcD7zRyYHaIa",
+  "remote_ip": "127.0.0.1",
+  "host": "localhost:1323",
+  "method": "GET",
+  "uri": "/",
+  "user_agent": "curl/7.79.1",
+  "message": "This is a log in Hello method."
+}
 ```
 
 
@@ -64,7 +76,7 @@ By using ecolog and echo's standard gommon logging, you can output logs with the
   ```shell
   ❯ go run example/server.go
   ⇨ http server started on [::]:1323
-  {"time":"2022-12-18T22:08:33+09:00","level": "INFO",id":"QLcFbv1G3gQbe78bJOG2XVkbbPWwt7uP","remote_ip":"127.0.0.1","host":"localhost:1323","method":"GET","uri":"/","user_agent":"curl/7.79.1","message":"This is a log in Hello method."}
+  {"time":"2022-12-18T22:22:21+09:00","level": "INFO","id":"5aWJKbZ1hEDYyfwhidOnUcD7zRyYHaIa","remote_ip":"127.0.0.1","host":"localhost:1323","method":"GET","uri":"/","user_agent":"curl/7.79.1","message":"This is a log in Hello method."}
   ```
 
 See [example/server.go](https://github.com/raahii/ecolog/blob/main/example/server.go) for details.

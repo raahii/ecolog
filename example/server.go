@@ -22,7 +22,7 @@ func main() {
 	// Use ecolog for contextual logging.
 	// See also document of ecolog.AppLoggerConfig.
 	e.Use(ecolog.AppLoggerWithConfig(ecolog.AppLoggerConfig{
-		Format: `{"time":"${time_rfc3339}","level": "${level}",id":"${id}","remote_ip":"${remote_ip}",` +
+		Format: `{"time":"${time_rfc3339}","level": "${level}","id":"${id}","remote_ip":"${remote_ip}",` +
 			`"host":"${host}","method":"${method}","uri":"${uri}","user_agent":"${user_agent}"}`,
 	}))
 

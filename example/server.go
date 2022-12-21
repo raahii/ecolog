@@ -19,7 +19,7 @@ func main() {
 	e.HideBanner = true
 	e.Use(middleware.RequestID())
 
-	// Use ecolog for contextual logging.
+	// Use ecolog middleware.
 	// See also document of ecolog.AppLoggerConfig.
 	e.Use(ecolog.AppLoggerWithConfig(ecolog.AppLoggerConfig{
 		Format: `{"time":"${time_rfc3339}","level": "${level}","id":"${id}","remote_ip":"${remote_ip}",` +

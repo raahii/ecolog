@@ -3,20 +3,9 @@
 [![Go package](https://github.com/raahii/ecolog/actions/workflows/test.yml/badge.svg)](https://github.com/raahii/ecolog/actions/workflows/test.yml)
 
 
+Ecolog provides a middleware for [Go Echo framework](https://echo.labstack.com/) to output application logs with request context.
 
-Ecolog provides a middleware for [Go Echo framework](https://echo.labstack.com/) to realize contextual logging.
-
-```shell
-go get -u github.com/raahii/ecolog
-```
-
-
-
-## What is Contextual Logging?
-
-Contextual logging here means logging your application logs with the request context.
-By using ecolog and echo's standard gommon logging, you can output logs with the handling request infos, such as http method, uri, request ID.
-
+By using ecolog and Echo's standard gommon logging, You can add fields related to HTTP request such as method, URI, Request ID, etc.
 ```json
 {
   "time": "2022-12-18T22:22:21+09:00",
@@ -33,6 +22,15 @@ By using ecolog and echo's standard gommon logging, you can output logs with the
 
 
 
+## Installation
+
+```shell
+go get -u github.com/raahii/ecolog
+```
+
+
+
+
 ## Example
 
 1. Let's use ecolog middleware to override log format.
@@ -41,7 +39,7 @@ By using ecolog and echo's standard gommon logging, you can output logs with the
   func main() {
     e := echo.New()
     
-    // Use ecolog for contextual logging.
+    // Use ecolog middleware.
     // See also ecolog.AppLoggerConfig doc.
     e.Use(ecolog.AppLoggerWithConfig(ecolog.AppLoggerConfig{
       Format: `{"time":"${time_rfc3339}","level": "${level}",id":"${id}","remote_ip":"${remote_ip}",` +
